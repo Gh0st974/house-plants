@@ -9,6 +9,7 @@ const PlantsEvents = {
     this.bindSearch();
     this.bindPhotoInputs();
     this.bindPageChange();
+    this.bindContainer();
   },
 
   // Rendu initial et à chaque retour sur la page
