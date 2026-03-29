@@ -1,0 +1,30 @@
+/* 📄 Fichier : css/components/empty-state.css */
+/* 🎯 Rôle : Styles des états vides */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 14px;
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.empty-state-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #3a7d44;
+}
+
+.empty-state-text {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.5;
+  max-width: 240px;
+}

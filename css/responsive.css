@@ -1,0 +1,53 @@
+/* 📄 Fichier : css/responsive.css */
+/* 🎯 Rôle : Adaptations responsive tablette et desktop */
+
+@media (min-width: 600px) {
+  .app-main {
+    padding: 20px 24px;
+  }
+
+  .page {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 900px) {
+  .app-header {
+    padding: 0 32px;
+  }
+
+  .app-main {
+    padding: 24px 32px;
+  }
+
+  .page {
+    max-width: 860px;
+  }
+
+  .bottom-nav {
+    left: 0;
+    width: 200px;
+    height: 100%;
+    top: 56px;
+    bottom: 0;
+    flex-direction: column;
+    border-top: none;
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  }
+
+  .nav-item {
+    flex: none;
+    height: 60px;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 20px;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .app-main {
+    left: 200px;
+    bottom: 0;
+  }
+}

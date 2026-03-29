@@ -1,0 +1,333 @@
+/* 📄 Fichier : css/components/cards.css */
+/* 🎯 Rôle : Styles des cartes plantes (liste et grille) */
+
+/* ---- VUE LISTE ---- */
+.plant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plant-card-list {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.plant-card-main {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.plant-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #e8f5e9;
+}
+
+.plant-thumb-placeholder {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.plant-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.plant-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2d2d2d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plant-species {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plant-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.plant-action-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #888;
+  font-size: 15px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.plant-action-btn:hover {
+  background: #f5f5f5;
+  color: #3a7d44;
+}
+
+.plant-action-btn.delete:hover {
+  color: #e53935;
+}
+
+/* Accordéon */
+.plant-accordion {
+  border-top: 1px solid #f0f0f0;
+  padding: 12px 14px;
+  display: none;
+}
+
+.plant-accordion.open {
+  display: block;
+}
+
+.accordion-section {
+  margin-bottom: 10px;
+}
+
+.accordion-section:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.accordion-text {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.accordion-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.accordion-link {
+  font-size: 13px;
+  color: #3a7d44;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* Flèche accordéon */
+.accordion-toggle {
+  font-size: 12px;
+  color: #bbb;
+  margin-left: 4px;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.accordion-toggle.open {
+  transform: rotate(180deg);
+}
+
+/* ---- VUE GRILLE ---- */
+.plant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.plant-card-grid {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  overflow: hidden;
+  position: relative;
+}
+
+.plant-grid-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+.plant-grid-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.plant-grid-footer {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.plant-grid-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2d2d2d;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plant-grid-actions {
+  display: flex;
+  gap: 2px;
+}
+
+/* Modale photo (vue grille) */
+.photo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.photo-modal-img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.photo-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.plant-card-grid {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.plant-grid-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.plant-grid-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.plant-grid-footer {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.plant-grid-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2d2d2d;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plant-grid-actions {
+  display: flex;
+  gap: 2px;
+}
+
+/* Suite accordéon */
+.accordion-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #3a7d44;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accordion-text {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.accordion-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.accordion-link {
+  font-size: 13px;
+  color: #3a7d44;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.accordion-section + .accordion-section {
+  margin-top: 10px;
+}

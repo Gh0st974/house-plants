@@ -1,0 +1,122 @@
+/* 📄 Fichier : css/components/buttons.css */
+/* 🎯 Rôle : Styles des boutons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s, opacity 0.2s, transform 0.1s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primaire : vert */
+.btn-primary {
+  background: #3a7d44;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #2f6838;
+}
+
+/* Secondaire : contour vert */
+.btn-secondary {
+  background: #f0f7f1;
+  color: #3a7d44;
+  border: 1.5px solid #c8e6c9;
+}
+
+.btn-secondary:hover {
+  background: #e0f0e3;
+}
+
+/* Ghost : transparent */
+.btn-ghost {
+  background: transparent;
+  color: #666;
+  border: 1.5px solid #e0e0e0;
+}
+
+.btn-ghost:hover {
+  background: #f5f5f5;
+}
+
+/* Danger : rouge */
+.btn-danger {
+  background: #e53935;
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background: #c62828;
+}
+
+/* Icône */
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: transparent;
+  color: #666;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.btn-icon:hover,
+.btn-icon.active {
+  background: #e8f5e9;
+  color: #3a7d44;
+}
+
+/* View toggle */
+.view-toggle {
+  border: 1.5px solid #e0e0e0;
+}
+
+.view-toggle.active {
+  background: #3a7d44;
+  color: #ffffff;
+  border-color: #3a7d44;
+}
+
+/* Mode toggle (individuel / plage) */
+.mode-toggle {
+  display: flex;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.btn-mode {
+  flex: 1;
+  padding: 7px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-mode.active {
+  background: #3a7d44;
+  color: #fff;
+}

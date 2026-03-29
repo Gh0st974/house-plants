@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#3a7d44" />
+  <title>House Plants</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS Reset & Layout -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Composants -->
+  <link rel="stylesheet" href="css/components/buttons.css" />
+  <link rel="stylesheet" href="css/components/modals.css" />
+  <link rel="stylesheet" href="css/components/cards.css" />
+  <link rel="stylesheet" href="css/components/badges.css" />
+  <link rel="stylesheet" href="css/components/calendar.css" />
+  <link rel="stylesheet" href="css/components/forms.css" />
+  <link rel="stylesheet" href="css/components/empty-state.css" />
+  <link rel="stylesheet" href="css/components/settings.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-logo">
+      <span class="header-icon">🌿</span>
+      <span class="header-title">House Plants</span>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="app-main" id="app-main">
+
+    <!-- PAGE : MES PLANTES -->
+    <section class="page" id="page-plants">
+      <div class="page-topbar">
+        <h1 class="page-title">Mes plantes</h1>
+        <div class="topbar-actions">
+          <button class="btn btn-primary" id="btn-add-plant">+ Ajouter</button>
+          <button class="btn-icon view-toggle active" id="btn-view-list" title="Vue liste">
+            <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="2"/><rect x="4" y="11" width="16" height="2"/><rect x="4" y="17" width="16" height="2"/></svg>
+          </button>
+          <button class="btn-icon view-toggle" id="btn-view-grid" title="Vue grille">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input type="search" id="plant-search" placeholder="Rechercher une plante…" />
+      </div>
+      <div id="plants-container"></div>
+    </section>
+
+    <!-- PAGE : CALENDRIER -->
+    <section class="page hidden" id="page-calendar">
+      <div class="page-topbar">
+        <h1 class="page-title">Calendrier</h1>
+        <button class="btn btn-primary" id="btn-add-task">+ Ajouter</button>
+      </div>
+      <div id="calendar-container"></div>
+    </section>
+
+    <!-- PAGE : PARAMÈTRES -->
+    <section class="page hidden" id="page-settings">
+      <div class="page-topbar">
+        <h1 class="page-title">Paramètres</h1>
+      </div>
+      <div id="settings-container"></div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-page="plants">
+      <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2 1-3 4-4 4-4C12 2 8 5 7 10c-1.5 2.5-1.5 5-1 8"/></svg>
+      <span>Mes plantes</span>
+    </button>
+    <button class="nav-item" data-page="calendar">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Calendrier</span>
+    </button>
+    <button class="nav-item" data-page="settings">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>Paramètres</span>
+    </button>
+  </nav>
+
+  <!-- MODAL : PLANTE -->
+  <div class="modal-overlay hidden" id="modal-plant">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-plant-title">Nouvelle plante</h2>
+        <button class="modal-close" id="modal-plant-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-plant" novalidate>
+
+          <!-- Photo -->
+          <div class="form-group photo-group">
+            <div class="photo-preview" id="photo-preview">
+              <span class="photo-placeholder">🌿</span>
+            </div>
+            <div class="photo-actions">
+              <button type="button" class="btn btn-secondary" id="btn-camera">📷 Appareil photo</button>
+              <button type="button" class="btn btn-secondary" id="btn-gallery">🖼️ Galerie</button>
+            </div>
+            <input type="file" id="input-camera" accept="image/*" capture="environment" class="hidden" />
+            <input type="file" id="input-gallery" accept="image/*" class="hidden" />
+          </div>
+
+          <!-- Nom -->
+          <div class="form-group">
+            <label class="form-label" for="plant-name">Nom <span class="required">*</span></label>
+            <input class="form-input" type="text" id="plant-name" placeholder="Ex: Mon pothos" required />
+          </div>
+
+          <!-- Espèce -->
+          <div class="form-group">
+            <label class="form-label" for="plant-species">Espèce</label>
+            <input class="form-input" type="text" id="plant-species" placeholder="Ex: Epipremnum aureum" />
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label class="form-label" for="plant-notes">Notes</label>
+            <textarea class="form-input form-textarea" id="plant-notes" placeholder="Arrosage, exposition…"></textarea>
+          </div>
+
+          <!-- URLs -->
+          <div class="form-group">
+            <label class="form-label">Liens utiles</label>
+            <div id="urls-container"></div>
+            <button type="button" class="btn btn-ghost" id="btn-add-url">+ Ajouter un lien</button>
+          </div>
+
+          <input type="hidden" id="plant-id" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-ghost" id="btn-plant-cancel">Annuler</button>
+        <button type="button" class="btn btn-primary" id="btn-plant-save">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL : TÂCHE -->
+  <div class="modal-overlay hidden" id="modal-task">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-task-title">Nouvelle tâche</h2>
+        <button class="modal-close" id="modal-task-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-task" novalidate>
+
+          <!-- Nom -->
+          <div class="form-group">
+            <label class="form-label" for="task-name">Nom de la tâche <span class="required">*</span></label>
+            <input class="form-input" type="text" id="task-name" placeholder="Ex: Arrosage" required />
+          </div>
+
+          <!-- Plante liée -->
+          <div class="form-group">
+            <label class="form-label" for="task-plant">Plante concernée</label>
+            <select class="form-input form-select" id="task-plant">
+              <option value="all">Toutes les plantes</option>
+            </select>
+          </div>
+
+          <!-- Mode de sélection des mois -->
+          <div class="form-group">
+            <label class="form-label">Période</label>
+            <div class="mode-toggle">
+              <button type="button" class="btn-mode active" id="mode-individual" data-mode="individual">Mois individuels</button>
+              <button type="button" class="btn-mode" id="mode-range" data-mode="range">Plage de mois</button>
+            </div>
+          </div>
+
+          <!-- Sélecteur mois individuels -->
+          <div class="form-group" id="months-individual">
+            <div class="months-grid" id="months-selector"></div>
+          </div>
+
+          <!-- Sélecteur plage -->
+          <div class="form-group hidden" id="months-range">
+            <div class="range-selects">
+              <select class="form-input form-select" id="range-from">
+                <option value="">De…</option>
+              </select>
+              <span class="range-sep">→</span>
+              <select class="form-input form-select" id="range-to">
+                <option value="">À…</option>
+              </select>
+            </div>
+          </div>
+
+          <input type="hidden" id="task-id" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-ghost" id="btn-task-cancel">Annuler</button>
+        <button type="button" class="btn btn-primary" id="btn-task-save">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL : CONFIRMATION SUPPRESSION -->
+  <div class="modal-overlay hidden" id="modal-confirm">
+    <div class="modal modal-small">
+      <div class="modal-header">
+        <h2 class="modal-title">Confirmer la suppression</h2>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-message">Êtes-vous sûr de vouloir supprimer cet élément ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-ghost" id="btn-confirm-cancel">Annuler</button>
+        <button type="button" class="btn btn-danger" id="btn-confirm-ok">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Modules -->
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/plants/plants.js"></script>
+  <script src="js/plants/plants.ui.js"></script>
+  <script src="js/plants/plants.modal.js"></script>
+  <script src="js/plants/plants.events.js"></script>
+  <script src="js/calendar/calendar.js"></script>
+  <script src="js/calendar/calendar.ui.js"></script>
+  <script src="js/calendar/calendar.modal.js"></script>
+  <script src="js/calendar/calendar.events.js"></script>
+  <script src="js/settings/settings.js"></script>
+  <script src="js/settings/settings.ui.js"></script>
+  <script src="js/settings/settings.events.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

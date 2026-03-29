@@ -1,0 +1,151 @@
+/* 📄 Fichier : css/components/calendar.css */
+/* 🎯 Rôle : Styles de la page calendrier et ses tâches */
+
+/* Groupes par plante */
+.task-group {
+  margin-bottom: 20px;
+}
+
+.task-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.task-group-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #c8e6c9;
+}
+
+.task-group-thumb-placeholder {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.task-group-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #3a7d44;
+  flex: 1;
+}
+
+/* Carte tâche */
+.task-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.task-card.is-next {
+  border-left: 3px solid #3a7d44;
+}
+
+.task-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin-bottom: 5px;
+}
+
+.task-months {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.task-action-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  color: #888;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.task-action-btn:hover {
+  background: #f5f5f5;
+  color: #3a7d44;
+}
+
+.task-action-btn.delete:hover {
+  color: #e53935;
+}
+
+/* Badge "Prochain" */
+.task-next-badge {
+  font-size: 10px;
+  font-weight: 700;
+  background: #3a7d44;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+
+/* Sélecteur mois dans modal */
+.months-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.month-btn {
+  padding: 8px 4px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.2s, border-color 0.2s;
+  text-align: center;
+}
+
+.month-btn.selected {
+  border-color: #2d2d2d;
+}
+
+.range-selects {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.range-selects .form-select {
+  flex: 1;
+}
+
+.range-sep {
+  font-size: 16px;
+  font-weight: 700;
+  color: #555;
+  flex-shrink: 0;
+}
