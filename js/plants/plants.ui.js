@@ -123,17 +123,36 @@ const PlantsUI = {
   // Ouvre la modale photo (vue grille)
   openPhotoModal(plant) {
     if (!plant.photo) return;
+
+    // Créer l'overlay via createElement pour permettre les listeners directs
     const overlay = document.createElement('div');
     overlay.className = 'photo-modal-overlay';
-    overlay.innerHTML = `
-      <button class="photo-modal-close">✕</button>
-      <img class="photo-modal-img" src="${plant.photo}" alt="${plant.name}" />
-    `;
+
+    // Créer le bouton de fermeture
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'photo-modal-close';
+    closeBtn.textContent = '✕';
+
+    // Créer l'image
+    const img = document.createElement('img');
+    img.className = 'photo-modal-img';
+    img.src = plant.photo;
+    img.alt = plant.name;
+
+    overlay.appendChild(closeBtn);
+    overlay.appendChild(img);
+
+    // Fonction de fermeture unique — garantit le remove()
+    const close = () => overlay.remove();
+
+    // Fermeture via bouton ✕ — listener direct, fiable sur mobile
+    closeBtn.addEventListener('click', close);
+
+    // Fermeture via clic sur le fond — classList plus fiable que e.target === overlay sur mobile
     overlay.addEventListener('click', (e) => {
-      if (e.target === overlay || e.target.classList.contains('photo-modal-close')) {
-        overlay.remove();
-      }
+      if (e.target.classList.contains('photo-modal-overlay')) close();
     });
+
     document.body.appendChild(overlay);
   },
 
