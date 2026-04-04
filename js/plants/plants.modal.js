@@ -69,27 +69,31 @@ const PlantsModal = {
     container.appendChild(row);
   },
 
-  // Collecte les données du formulaire
-  getFormData() {
-    const name = document.getElementById('plant-name').value.trim();
-    if (!name) {
-      document.getElementById('plant-name').classList.add('error');
-      return null;
-    }
-    document.getElementById('plant-name').classList.remove('error');
+// Collecte les données du formulaire
+getFormData() {
+  // DEBUG
+  alert('nb plant-name: ' + document.querySelectorAll('#plant-name').length);
+  alert('valeur: "' + document.getElementById('plant-name').value + '"');
 
-    const urls = Array.from(document.querySelectorAll('.url-input'))
-      .map(i => i.value.trim())
-      .filter(v => v.length > 0);
+  const name = document.getElementById('plant-name').value.trim();
+  if (!name) {
+    document.getElementById('plant-name').classList.add('error');
+    return null;
+  }
+  document.getElementById('plant-name').classList.remove('error');
 
-    return {
-      name,
-      species: document.getElementById('plant-species').value.trim(),
-      notes:   document.getElementById('plant-notes').value.trim(),
-      photo:   this.getCurrentPhoto(),
-      urls
-    };
-  },
+  const urls = Array.from(document.querySelectorAll('.url-input'))
+    .map(i => i.value.trim())
+    .filter(v => v.length > 0);
+
+  return {
+    name,
+    species: document.getElementById('plant-species').value.trim(),
+    notes:   document.getElementById('plant-notes').value.trim(),
+    photo:   this.getCurrentPhoto(),
+    urls
+  };
+},
 
   // Gère la sélection d'une photo (caméra ou galerie)
   handleFileInput(file) {
